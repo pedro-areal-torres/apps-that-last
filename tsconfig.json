@@ -1,27 +1,58 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    // Environment setup
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "target": "es2017",
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "jsx": "preserve",
+    "noEmit": true,
     "incremental": true,
+    "isolatedModules": true,
+
+    // Enable JS compatibility
+    "allowJs": true,
+    "checkJs": true,
+
+    // Type safety
+    "strict": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+
+    // Module compatibility
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Output
+    "sourceMap": true,
+    "outDir": "out",
+
+    // Path aliases
+    "baseUrl": "src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@lib/*": ["lib/*"]
+    },
+
+    // Editor support
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
+
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "out", "**/*.spec.ts", "**/*.e2e.ts"]
 }
